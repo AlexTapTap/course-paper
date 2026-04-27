@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Phone, Mail, Instagram, Facebook } from 'lucide-react';
 import { useState } from 'react';
