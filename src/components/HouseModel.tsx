@@ -24,7 +24,7 @@ export default function HouseModel() {
         <Suspense fallback={<mesh><boxGeometry /><meshStandardMaterial color="#333" wireframe /></mesh>}>
           <PerspectiveCamera makeDefault position={[8, 8, 8]} fov={50} />
           <Stage environment="city" intensity={0.5} shadows="contact" adjustCamera={true}>
-            <Model url="house.glb" />
+            <Model url="multi-storey_building_in_moscow (2).glb" />
           </Stage>
           <OrbitControls 
             enableZoom={false} 
