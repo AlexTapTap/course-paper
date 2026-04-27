@@ -23,8 +23,8 @@ export default function HouseModel() {
       <Canvas shadows dpr={[1, 2]}>
         <Suspense fallback={<mesh><boxGeometry /><meshStandardMaterial color="#333" wireframe /></mesh>}>
           <PerspectiveCamera makeDefault position={[8, 8, 8]} fov={50} />
-          <Stage environment="city" intensity={0.5} contactShadow={{ opacity: 0.7, blur: 2 }} adjustCamera={true}>
-            <Model url={`${import.meta.env.BASE_URL}house.glb`} />
+          <Stage environment="city" intensity={0.5} shadows="contact" adjustCamera={true}>
+            <Model url={(import.meta as any).env.BASE_URL + 'house.glb'} />
           </Stage>
           <OrbitControls 
             enableZoom={false} 

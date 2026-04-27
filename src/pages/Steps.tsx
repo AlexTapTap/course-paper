@@ -72,14 +72,14 @@ export default function Steps() {
                   className="relative pl-0 lg:pl-24"
                 >
                   <div className="hidden lg:flex absolute left-0 top-0 w-20 h-20 bg-[#1c1c1c] border border-gray-800 items-center justify-center text-orange-500 z-10 group-hover:border-orange-500 transition-colors">
-                    {step.customIcon || step.icon}
+                    {step.icon}
                     <div className="absolute -right-12 top-10 w-12 h-[1px] bg-gray-800" />
                   </div>
 
                   <div className="bg-[#1c1c1c] p-8 lg:p-12 border border-gray-800 hover:border-orange-500/30 transition-all flex flex-col md:flex-row gap-10">
                     <div className="flex-grow">
                       <div className="flex items-center gap-4 mb-4 lg:hidden text-orange-500">
-                        {step.customIcon || step.icon}
+                        {step.icon}
                         <h3 className="text-2xl font-bold text-white">0{index + 1}. {step.title}</h3>
                       </div>
                       <h3 className="hidden lg:block text-3xl font-bold mb-6">0{index + 1}. {step.title}</h3>
