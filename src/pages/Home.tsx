@@ -108,9 +108,9 @@ export default function Home() {
             <div className="order-2 lg:order-1 relative group">
               <div className="absolute inset-0 bg-orange-500 mix-blend-color opacity-20 transition-opacity group-hover:opacity-0 z-20 pointer-events-none" />
               <img
-                src="https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=1000"
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070"
                 alt="Construction expertise"
-                className="rounded-sm grayscale grayscale-filter relative z-10 w-full"
+                className="rounded-sm border border-gray-800 relative z-10 w-full shadow-2xl"
               />
               <div className="absolute -bottom-8 -right-8 w-64 h-64 border-b-2 border-r-2 border-orange-500/30 z-0" />
             </div>
@@ -145,7 +145,7 @@ export default function Home() {
       </section>
 
       {/* Services Grid Implementation */}
-      <section className="py-32 bg-[#141414] border-t border-gray-800">
+      <section className="py-32 bg-[#141414] border-t border-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-12">
             <div className="max-w-xl">

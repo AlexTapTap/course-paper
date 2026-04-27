@@ -55,7 +55,7 @@ const projects = [
     id: '6',
     title: 'Автосалон "Премиум"',
     category: 'Коммерция',
-    image: 'https://images.unsplash.com/photo-1567684014761-b61e2e5c486d?auto=format&fit=crop&q=80&w=2070',
+    image: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=2070',
     location: 'Санкт-Петербург',
     year: '2023',
     desc: 'Строительство выставочного зала и ремонтной зоны.'

@@ -47,7 +47,7 @@ export default function Steps() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="pb-24"
+      className="flex flex-col"
     >
       <section className="bg-[#141414] py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
