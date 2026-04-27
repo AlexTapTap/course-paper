@@ -1,0 +1,42 @@
+{
+  "entities": {
+    "Review": {
+      "title": "Review",
+      "description": "User feedback and reviews for the company",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "UID of the user who left the review" },
+        "userName": { "type": "string", "description": "Display name of the user" },
+        "rating": { "type": "number", "description": "Rating from 1 to 5" },
+        "comment": { "type": "string", "description": "Text content of the review" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Timestamp of creation" }
+      },
+      "required": ["userName", "rating", "comment", "createdAt"]
+    },
+    "Inquiry": {
+      "title": "Inquiry",
+      "description": "Form submission from the application page",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "service": { "type": "string", "description": "Type of service requested" },
+        "details": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "status": { "type": "string", "enum": ["new", "processing", "contacted", "closed"] }
+      },
+      "required": ["name", "email", "phone", "createdAt", "status"]
+    }
+  },
+  "firestore": {
+    "reviews": {
+      "schema": "Review",
+      "description": "Public reviews collection"
+    },
+    "inquiries": {
+      "schema": "Inquiry",
+      "description": "Private inquiry submissions"
+    }
+  }
+}

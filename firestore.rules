@@ -1,0 +1,26 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    match /reviews/{reviewId} {
+      allow read: if true;
+      allow create: if request.resource.data.userName is string
+                   && request.resource.data.rating is number
+                   && request.resource.data.comment is string
+                   && request.resource.data.comment.size() >= 10;
+      allow delete: if request.auth != null && request.auth.token.email == 'lmaslov691@gmail.com';
+    }
+
+    match /inquiries/{inquiryId} {
+      allow create: if request.resource.data.name is string
+                   && request.resource.data.email is string
+                   && request.resource.data.phone is string
+                   && request.resource.data.details is string;
+      allow read, update, delete: if request.auth != null && request.auth.token.email == 'lmaslov691@gmail.com';
+    }
+  }
+}
