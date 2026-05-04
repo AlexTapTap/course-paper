@@ -1,6 +1,7 @@
 import { Suspense, Component, ReactNode } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { useGLTF, Stage, OrbitControls, Environment } from '@react-three/drei';
+import houseModelUrl from '/house.glb?url';
 
 class ErrorBoundary extends Component<{ children: ReactNode; fallback: ReactNode }, { hasError: boolean }> {
   constructor(props: { children: ReactNode; fallback: ReactNode }) {
@@ -37,9 +38,6 @@ const PlaceholderModel = () => (
 );
 
 export default function HouseModel() {
-  const modelUrl = 'house.glb';
-  console.log("Loading 3D model from:", modelUrl);
-
   return (
     <div className="w-full h-[300px] md:h-[500px] cursor-grab active:cursor-grabbing bg-bg-secondary/50 rounded-sm">
       <Canvas 
@@ -51,7 +49,7 @@ export default function HouseModel() {
         <ErrorBoundary fallback={<PlaceholderModel />}>
           <Suspense fallback={<PlaceholderModel />}>
             <Stage environment="city" intensity={0.6} shadows="contact" adjustCamera={true}>
-              <Model url={modelUrl} />
+              <Model url={houseModelUrl} />
             </Stage>
             <OrbitControls 
               enableZoom={true}
