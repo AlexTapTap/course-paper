@@ -3,8 +3,18 @@ import { Canvas } from '@react-three/fiber';
 import { useGLTF, Stage, OrbitControls, Environment } from '@react-three/drei';
 
 function Model({ url }: { url: string }) {
-  const { scene } = useGLTF(url);
-  return <primitive object={scene} />;
+  try {
+    const { scene } = useGLTF(url);
+    return <primitive object={scene} />;
+  } catch (error) {
+    console.error("Failed to load 3D model:", error);
+    return (
+      <mesh>
+        <boxGeometry args={[1, 1, 1]} />
+        <meshStandardMaterial color="#444" wireframe />
+      </mesh>
+    );
+  }
 }
 
 useGLTF.preload('/house.glb');

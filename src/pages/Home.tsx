@@ -19,7 +19,7 @@ export default function Home() {
             alt="Construction background"
             className="w-full h-full object-cover opacity-10 grayscale"
           />
-          <div className="absolute inset-0 bg-bg-primary/95" />
+          <div className="absolute inset-0 bg-bg-primary opacity-95" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">

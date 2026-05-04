@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { HashRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Phone, Mail, Instagram, Facebook, Sun, Moon } from 'lucide-react';
 import { useState, useEffect } from 'react';
@@ -32,7 +32,7 @@ function Navbar({ isDark, toggleTheme }: { isDark: boolean; toggleTheme: () => v
   ];
 
   return (
-    <nav className="fixed w-full z-50 bg-bg-primary/80 backdrop-blur-md border-b border-border-theme">
+    <nav className="fixed w-full z-50 bg-bg-primary border-b border-border-theme">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           <div className="flex items-center">
@@ -196,6 +196,26 @@ function Footer() {
   );
 }
 
+function AppContent({ isDark, toggleTheme }: { isDark: boolean; toggleTheme: () => void }) {
+  return (
+    <div className="min-h-screen flex flex-col font-sans transition-colors duration-300 bg-bg-primary text-text-primary relative">
+      <Navbar isDark={isDark} toggleTheme={toggleTheme} />
+      <main className="flex-grow pt-20">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/steps" element={<Steps />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/apply" element={<Application />} />
+          <Route path="/contacts" element={<Contacts />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
 export default function App() {
   const [isDark, setIsDark] = useState(true);
 
@@ -211,26 +231,7 @@ export default function App() {
 
   return (
     <Router>
-      <div className={cn(
-        "min-h-screen flex flex-col font-sans transition-colors duration-300",
-        isDark ? "bg-bg-primary text-text-primary" : "bg-bg-primary text-text-primary"
-      )}>
-        <Navbar isDark={isDark} toggleTheme={toggleTheme} />
-        <main className="flex-grow pt-20">
-          <AnimatePresence mode="wait">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/steps" element={<Steps />} />
-              <Route path="/reviews" element={<Reviews />} />
-              <Route path="/apply" element={<Application />} />
-              <Route path="/contacts" element={<Contacts />} />
-            </Routes>
-          </AnimatePresence>
-        </main>
-        <Footer />
-      </div>
+      <AppContent isDark={isDark} toggleTheme={toggleTheme} />
     </Router>
   );
 }
