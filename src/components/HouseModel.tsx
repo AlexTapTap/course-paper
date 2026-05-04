@@ -1,50 +1,67 @@
-import { Suspense } from 'react';
+import { Suspense, Component, ReactNode } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { useGLTF, Stage, OrbitControls, Environment } from '@react-three/drei';
 
-function Model({ url }: { url: string }) {
-  try {
-    const { scene } = useGLTF(url);
-    return <primitive object={scene} />;
-  } catch (error) {
-    console.error("Failed to load 3D model:", error);
-    return (
-      <mesh>
-        <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color="#444" wireframe />
-      </mesh>
-    );
+class ErrorBoundary extends Component<{ children: ReactNode; fallback: ReactNode }, { hasError: boolean }> {
+  constructor(props: { children: ReactNode; fallback: ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: any) {
+    console.error("Three.js Error:", error);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return this.props.fallback;
+    }
+    return this.props.children;
   }
 }
 
-useGLTF.preload('/house.glb');
+function Model({ url }: { url: string }) {
+  const { scene } = useGLTF(url);
+  return <primitive object={scene} />;
+}
+
+const PlaceholderModel = () => (
+  <mesh>
+    <boxGeometry args={[1, 1, 1]} />
+    <meshStandardMaterial color="#444" wireframe />
+  </mesh>
+);
 
 export default function HouseModel() {
+  const modelUrl = 'house.glb';
+
   return (
-    <div className="w-full h-[300px] md:h-[500px] cursor-grab active:cursor-grabbing">
+    <div className="w-full h-[300px] md:h-[500px] cursor-grab active:cursor-grabbing bg-bg-secondary/50 rounded-sm">
       <Canvas 
         shadows 
-        dpr={[1, 1.5]} // Lowering max DPR for mobile performance
+        dpr={[1, 1.5]}
         camera={{ position: [8, 8, 8], fov: 50 }}
+        onError={(e) => console.error("Canvas Error:", e)}
       >
-        <Suspense fallback={
-          <mesh>
-            <boxGeometry args={[1, 1, 1]} />
-            <meshStandardMaterial color="#444" wireframe />
-          </mesh>
-        }>
-          <Stage environment="city" intensity={0.6} shadows="contact" adjustCamera={true}>
-            <Model url="house.glb" />
-          </Stage>
-          <OrbitControls 
-            enableZoom={true} // Allow zoom on mobile to see better
-            autoRotate 
-            autoRotateSpeed={0.5}
-            minPolarAngle={Math.PI / 4}
-            maxPolarAngle={Math.PI / 2}
-            enableDamping
-          />
-        </Suspense>
+        <ErrorBoundary fallback={<PlaceholderModel />}>
+          <Suspense fallback={<PlaceholderModel />}>
+            <Stage environment="city" intensity={0.6} shadows="contact" adjustCamera={true}>
+              <Model url={modelUrl} />
+            </Stage>
+            <OrbitControls 
+              enableZoom={true}
+              autoRotate 
+              autoRotateSpeed={0.5}
+              minPolarAngle={Math.PI / 4}
+              maxPolarAngle={Math.PI / 2}
+              enableDamping
+            />
+          </Suspense>
+        </ErrorBoundary>
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} intensity={1} />
         <Environment preset="city" />
