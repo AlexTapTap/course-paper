@@ -84,22 +84,22 @@ export default function Application() {
                 </button>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 bg-[#1c1c1c] p-10 md:p-16 border border-gray-800">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 bg-bg-primary p-10 md:p-16 border border-border-theme shadow-lg">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
-                    <label className="block text-gray-500 text-[10px] font-black uppercase tracking-widest mb-3">Ваше имя</label>
+                    <label className="block text-text-secondary text-[10px] font-black uppercase tracking-widest mb-3">Ваше имя</label>
                     <input
                       {...register('name')}
-                      className="w-full bg-[#141414] border border-gray-800 p-4 text-white focus:border-orange-500 outline-none transition-all placeholder:text-gray-700"
+                      className="w-full bg-bg-secondary border border-border-theme p-4 text-text-primary focus:border-orange-500 outline-none transition-all placeholder:text-text-secondary/30"
                       placeholder="Иван Иванов"
                     />
                     {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
                   </div>
                   <div>
-                    <label className="block text-gray-500 text-[10px] font-black uppercase tracking-widest mb-3">Email</label>
+                    <label className="block text-text-secondary text-[10px] font-black uppercase tracking-widest mb-3">Email</label>
                     <input
                       {...register('email')}
-                      className="w-full bg-[#141414] border border-gray-800 p-4 text-white focus:border-orange-500 outline-none transition-all placeholder:text-gray-700"
+                      className="w-full bg-bg-secondary border border-border-theme p-4 text-text-primary focus:border-orange-500 outline-none transition-all placeholder:text-text-secondary/30"
                       placeholder="example@mail.ru"
                     />
                     {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
@@ -108,19 +108,19 @@ export default function Application() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
-                    <label className="block text-gray-500 text-[10px] font-black uppercase tracking-widest mb-3">Телефон</label>
+                    <label className="block text-text-secondary text-[10px] font-black uppercase tracking-widest mb-3">Телефон</label>
                     <input
                       {...register('phone')}
-                      className="w-full bg-[#141414] border border-gray-800 p-4 text-white focus:border-orange-500 outline-none transition-all placeholder:text-gray-700"
+                      className="w-full bg-bg-secondary border border-border-theme p-4 text-text-primary focus:border-orange-500 outline-none transition-all placeholder:text-text-secondary/30"
                       placeholder="+7 (___) ___-__-__"
                     />
                     {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
                   </div>
                   <div>
-                    <label className="block text-gray-500 text-[10px] font-black uppercase tracking-widest mb-3">Тип услуги</label>
+                    <label className="block text-text-secondary text-[10px] font-black uppercase tracking-widest mb-3">Тип услуги</label>
                     <select
                       {...register('service')}
-                      className="w-full bg-[#141414] border border-gray-800 p-4 text-white focus:border-orange-500 outline-none transition-all appearance-none cursor-pointer"
+                      className="w-full bg-bg-secondary border border-border-theme p-4 text-text-primary focus:border-orange-500 outline-none transition-all appearance-none cursor-pointer"
                     >
                       <option value={ServiceType.COTTAGE}>Строительство коттеджа</option>
                       <option value={ServiceType.COMMERCIAL}>Коммерческое здание</option>
@@ -132,11 +132,11 @@ export default function Application() {
                 </div>
 
                 <div>
-                  <label className="block text-gray-500 text-[10px] font-black uppercase tracking-widest mb-3">Детали проекта</label>
+                  <label className="block text-text-secondary text-[10px] font-black uppercase tracking-widest mb-3">Детали проекта</label>
                   <textarea
                     {...register('details')}
                     rows={5}
-                    className="w-full bg-[#141414] border border-gray-800 p-4 text-white focus:border-orange-500 outline-none transition-all placeholder:text-gray-700 resize-none"
+                    className="w-full bg-bg-secondary border border-border-theme p-4 text-text-primary focus:border-orange-500 outline-none transition-all placeholder:text-text-secondary/30 resize-none"
                     placeholder="Расскажите о площади, материалах и предпочтительных сроках..."
                   />
                   {errors.details && <p className="text-red-500 text-xs mt-1">{errors.details.message}</p>}
@@ -164,14 +164,14 @@ export default function Application() {
                 <Clock className="text-orange-500" />
                 ГРАФИК РАБОТЫ
               </h3>
-              <div className="space-y-4 text-gray-400">
-                <div className="flex justify-between border-b border-gray-800 pb-2">
+              <div className="space-y-4 text-text-secondary">
+                <div className="flex justify-between border-b border-border-theme pb-2">
                   <span>Будни (Пн-Пт):</span>
-                  <span className="text-white font-bold">09:00 — 19:00</span>
+                  <span className="text-text-primary font-bold">09:00 — 19:00</span>
                 </div>
-                <div className="flex justify-between border-b border-gray-800 pb-2">
+                <div className="flex justify-between border-b border-border-theme pb-2">
                   <span>Суббота:</span>
-                  <span className="text-white font-bold">10:00 — 16:00</span>
+                  <span className="text-text-primary font-bold">10:00 — 16:00</span>
                 </div>
                 <div className="flex justify-between text-orange-500/50">
                   <span>Воскресенье:</span>
@@ -187,19 +187,19 @@ export default function Application() {
               </h3>
               <div className="space-y-6">
                 <div className="group">
-                  <p className="text-gray-500 text-[10px] font-black uppercase mb-1">ГОРЯЧАЯ ЛИНИЯ</p>
-                  <a href="tel:+78120000000" className="text-2xl font-bold hover:text-orange-500 transition-colors tracking-tight">+7 (812) 000-00-00</a>
+                  <p className="text-text-secondary text-[10px] font-black uppercase mb-1">ГОРЯЧАЯ ЛИНИЯ</p>
+                  <a href="tel:+78120000000" className="text-2xl font-bold hover:text-orange-500 transition-colors tracking-tight text-text-primary">+7 (812) 000-00-00</a>
                 </div>
                 <div className="group">
-                  <p className="text-gray-500 text-[10px] font-black uppercase mb-1">EMAIL ДЛЯ ТЭО</p>
-                  <a href="mailto:info@severstroy.ru" className="text-xl font-bold hover:text-orange-500 transition-colors tracking-tight text-gray-300">info@severstroy.ru</a>
+                  <p className="text-text-secondary text-[10px] font-black uppercase mb-1">EMAIL ДЛЯ ТЭО</p>
+                  <a href="mailto:info@severstroy.ru" className="text-xl font-bold hover:text-orange-500 transition-colors tracking-tight text-text-secondary">info@severstroy.ru</a>
                 </div>
               </div>
             </div>
 
             <div className="bg-orange-500/5 border border-orange-500/20 p-8 flex items-start gap-4">
                <Mail className="text-orange-500 shrink-0 mt-1" />
-               <p className="text-gray-400 text-xs leading-relaxed italic">
+               <p className="text-text-secondary text-xs leading-relaxed italic">
                  При отправке заявки, копия письма будет направлена нашему ведущему специалисту по адресу <span className="text-orange-500 font-bold">lmaslov691@gmail.com</span> для оперативного рассмотрения.
                </p>
             </div>

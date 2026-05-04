@@ -49,8 +49,8 @@ export default function Services() {
       exit={{ opacity: 0 }}
       className="pb-24"
     >
-      <section className="bg-[#141414] py-24 relative overflow-hidden">
-        <div className="absolute right-[-10%] top-0 opacity-5">
+      <section className="bg-bg-secondary py-24 relative overflow-hidden">
+        <div className="absolute right-[-10%] top-0 opacity-5 text-text-primary">
            <Building2 size={600} />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -59,7 +59,7 @@ export default function Services() {
             <span className="text-orange-500 font-bold uppercase tracking-[0.3em] text-xs">Полный спектр услуг</span>
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-8">НАШИ <span className="text-orange-500 italic">ВОЗМОЖНОСТИ</span></h1>
-          <p className="text-gray-400 text-lg max-w-2xl leading-relaxed">
+          <p className="text-text-secondary text-lg max-w-2xl leading-relaxed">
             Мы предлагаем комплексные решения для реализации ваших строительных проектов, обеспечивая высокое качество и контроль на каждом этапе.
           </p>
         </div>
@@ -74,18 +74,18 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               key={index}
-              className="bg-[#1c1c1c] p-8 border border-gray-800 hover:border-orange-500 group transition-all"
+              className="bg-bg-primary p-8 border border-border-theme hover:border-orange-500 group transition-all shadow-sm"
             >
               <div className="text-orange-500 mb-8 inline-block p-4 border border-orange-500/10 bg-orange-500/5 group-hover:bg-orange-500 group-hover:text-black transition-all duration-500">
                 {item.icon}
               </div>
               <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
-              <p className="text-gray-400 text-sm mb-8 leading-relaxed">
+              <p className="text-text-secondary text-sm mb-8 leading-relaxed">
                 {item.desc}
               </p>
               <ul className="mb-10 space-y-3">
                 {item.features.map((feature, i) => (
-                  <li key={i} className="text-xs text-gray-500 flex items-center gap-3">
+                  <li key={i} className="text-xs text-text-secondary flex items-center gap-3">
                     <span className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
                     {feature}
                   </li>

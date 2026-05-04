@@ -4,15 +4,37 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border-theme: var(--border-theme);
+}
+
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --text-primary: #1c1c1c;
+  --text-secondary: #4b5563;
+  --border-theme: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --bg-primary: #1c1c1c;
+  --bg-secondary: #141414;
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --border-theme: rgba(249, 115, 22, 0.2);
 }
 
 @layer base {
   body {
-    @apply antialiased text-gray-300 bg-[#1c1c1c];
+    @apply antialiased text-text-secondary bg-bg-primary transition-colors duration-300;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-sans font-black tracking-tight text-white uppercase;
+    @apply font-sans font-black tracking-tight text-text-primary uppercase;
   }
 }
 
