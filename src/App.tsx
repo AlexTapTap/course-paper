@@ -18,17 +18,23 @@ import Reviews from './pages/Reviews';
 import Contacts from './pages/Contacts';
 import Application from './pages/Application';
 
+// Info Pages
+import Relevance from './pages/info/Relevance';
+import GoalObjectSubject from './pages/info/GoalObjectSubject';
+import Tasks from './pages/info/Tasks';
+import DomainDescription from './pages/info/DomainDescription';
+import DevelopmentTools from './pages/info/DevelopmentTools';
+
 function Navbar({ isDark, toggleTheme }: { isDark: boolean; toggleTheme: () => void }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
     { name: 'Главная', path: '/' },
-    { name: 'Услуги', path: '/services' },
-    { name: 'Проекты', path: '/projects' },
-    { name: 'Этапы', path: '/steps' },
-    { name: 'Отзывы', path: '/reviews' },
-    { name: 'Заявка', path: '/apply' },
-    { name: 'Контакты', path: '/contacts' },
+    { name: 'Актуальность', path: '/relevance' },
+    { name: 'Цели', path: '/goal' },
+    { name: 'Задачи', path: '/tasks' },
+    { name: 'Предметная область', path: '/domain' },
+    { name: 'Инструментарий', path: '/tools' },
   ];
 
   return (
@@ -201,15 +207,21 @@ function AppContent({ isDark, toggleTheme }: { isDark: boolean; toggleTheme: () 
     <div className="min-h-screen flex flex-col font-sans transition-colors duration-300 bg-bg-primary text-text-primary relative">
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
       <main className="flex-grow pt-20">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/steps" element={<Steps />} />
-          <Route path="/reviews" element={<Reviews />} />
-          <Route path="/apply" element={<Application />} />
-          <Route path="/contacts" element={<Contacts />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/steps" element={<Steps />} />
+            <Route path="/reviews" element={<Reviews />} />
+            <Route path="/apply" element={<Application />} />
+            <Route path="/contacts" element={<Contacts />} />
+            
+            <Route path="/relevance" element={<Relevance />} />
+            <Route path="/goal" element={<GoalObjectSubject />} />
+            <Route path="/tasks" element={<Tasks />} />
+            <Route path="/domain" element={<DomainDescription />} />
+            <Route path="/tools" element={<DevelopmentTools />} />
+          </Routes>
       </main>
       <Footer />
     </div>

@@ -37,7 +37,7 @@ const PlaceholderModel = () => (
 );
 
 export default function HouseModel() {
-  const modelUrl = 'house.glb';
+  const modelUrl = '/house.glb';
 
   return (
     <div className="w-full h-[300px] md:h-[500px] cursor-grab active:cursor-grabbing bg-bg-secondary/50 rounded-sm">
